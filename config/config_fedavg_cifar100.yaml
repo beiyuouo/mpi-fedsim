@@ -1,0 +1,36 @@
+# training config for fedavg on mnist
+num_clients: 10
+num_select_clients_per_round: 10
+num_rounds: 50
+epochs: 1
+batch_size: 32
+num_workers: 0
+
+optimizer_name: "sgd"
+optimizer_hyperparams:
+  lr: 0.01
+  momentum: 0.5
+  weight_decay: 0.0005
+
+loss_name: "cross_entropy"
+lr_scheduler_name: "step_lr"
+lr_scheduler_hyperparams:
+  step_size: 1
+  gamma: 0.9
+
+test_batch_size: 1000
+
+model_name: "cnn"
+in_channels: 3
+num_classes: 100
+img_size: 32
+
+seed: 3407
+
+iid: true
+alpha: 0.1
+
+sync: true
+
+log_interval: 100
+log_dir: "logs"
